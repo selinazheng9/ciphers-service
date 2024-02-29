@@ -1,7 +1,9 @@
 def caesar_encode(plainText, shift):
     cipherText = ""
     for c in plainText:
-        c_encoded = ord(c) + shift
-        c_encoded = chr(c_encoded)
-        cipherText += c_encoded
+        if (c.isupper()):
+            result = chr((ord(c) + shift-65) % 26 + 65)
+        else:
+            result = chr((ord(c) + shift-97) % 26 + 97)
+        cipherText += result
     return cipherText
